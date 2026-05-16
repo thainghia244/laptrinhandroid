@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/header_relative_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Phần 1: RelativeLayout"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
+        android:background="#BBDEFB"
+        android:padding="8dp">
+
+    <TextView
+        android:id="@+id/text_relative_top_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/top_left"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/button_relative_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Center Button" />
+
+    <TextView
+        android:id="@+id/text_relative_bottom_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/bottom_right"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+</RelativeLayout>
+
+    <!-- PHẦN 2: Sử dụng FrameLayout -->
+<TextView
+android:id="@+id/header_frame_layout"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginBottom="8dp"
+android:text="Phần 2: FrameLayout"
+android:textSize="20sp"
+android:textStyle="bold" />
+
+<FrameLayout
+android:layout_width="match_parent"
+android:layout_height="150dp"
+android:layout_marginBottom="16dp"
+android:background="#C8E6C9">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8BC34A"
+    android:gravity="center"
+    android:text="Lớp Nền (Dưới cùng)"
+    android:textColor="@android:color/white"
+    android:textSize="18sp" />
+
+<!-- View 2: Nằm trên cùng, căn giữa dưới -->
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal"
+    android:layout_marginBottom="10dp"
+    android:text="Lớp Trên (Căn giữa dưới)" />
+
+</FrameLayout>
+
+    <!-- PHẦN 3: Sử dụng LinearLayout lồng vào -->
+<TextView
+android:id="@+id/header_linear_layout"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginBottom="8dp"
+android:text="Phần 3: LinearLayout (lồng vào)"
+android:textSize="20sp"
+android:textStyle="bold" />
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="#FFECB3"
+android:orientation="horizontal"
+android:padding="8dp">
+
+<TextView
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginEnd="4dp"
+android:layout_weight="1"
+android:background="#FFB300"
+android:gravity="center"
+android:padding="10dp"
+android:text="Item 1"
+android:textColor="@android:color/white"
+android:textSize="16sp" />
+
+<TextView
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_marginStart="4dp"
+android:layout_weight="1"
+android:background="#FFB300"
+android:gravity="center"
+android:padding="10dp"
+android:text="@string/item_2"
+android:textColor="@android:color/white"
+android:textSize="16sp" />
+    </LinearLayout>
+
+    </LinearLayout>
