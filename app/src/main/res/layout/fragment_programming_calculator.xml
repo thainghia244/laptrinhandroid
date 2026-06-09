@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#F5F5F5"
+    tools:context=".ProgrammingCalculatorFragment">
+
+    <!-- Error/Result Display -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:elevation="4dp"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:textColor="@color/text_primary"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:textColor="@color/error"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Equation Type Selection -->
+    <RadioGroup
+        android:id="@+id/rg_equation_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp">
+
+        <RadioButton
+            android:id="@+id/rb_quadratic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bậc 2"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/rb_cubic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bậc 3" />
+
+        <RadioButton
+            android:id="@+id/rb_system"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hệ PT" />
+    </RadioGroup>
+
+    <!-- Scroll View for input fields -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Quadratic Container -->
+            <LinearLayout
+                android:id="@+id/container_quadratic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giải phương trình: ax² + bx + c = 0"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/et_quad_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập a"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_quad_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập b"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_quad_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập c"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="12dp" />
+
+                <Button
+                    android:id="@+id/btn_solve_quad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giải"
+                    android:background="@color/button_equal"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Cubic Container -->
+            <LinearLayout
+                android:id="@+id/container_cubic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giải phương trình: ax³ + bx² + cx + d = 0"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <EditText
+                    android:id="@+id/et_cub_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập a"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_cub_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập b"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_cub_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập c"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_cub_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập d"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="12dp" />
+
+                <Button
+                    android:id="@+id/btn_solve_cub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giải"
+                    android:background="@color/button_equal"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- System Container -->
+            <LinearLayout
+                android:id="@+id/container_system"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giải hệ phương trình:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phương trình 1: a₁x + b₁y = c₁"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_sys1_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập a₁"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/et_sys1_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập b₁"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/et_sys1_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập c₁"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phương trình 2: a₂x + b₂y = c₂"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/et_sys2_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập a₂"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/et_sys2_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập b₂"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="4dp" />
+
+                <EditText
+                    android:id="@+id/et_sys2_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập c₂"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="12dp" />
+
+                <Button
+                    android:id="@+id/btn_solve_sys"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giải"
+                    android:background="@color/button_equal"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Clear Button -->
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:text="Xóa"
+        android:textSize="16sp"
+        android:background="@color/button_clear"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+</LinearLayout>
